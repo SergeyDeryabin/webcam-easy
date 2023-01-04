@@ -1,50 +1,53 @@
+
 # Webcam Easy JS
-This is a javascript library for accessing webcam stream and taking photos.
+[English Version](README_EN.md) | Русская версия
 
-You can easily add it as a module to your own app.
+Это - javascript-библиотека для доступа к потоку веб-камеры и делать фотографии.
 
-- Streaming webcam on desktop computer or mobile
-- Switch back or front cameras on mobile
-- Take pictures and be able to download.
+Вы можете легко добавить ее в виде модуля к вашему собственному приложению.
 
-## Live Demo
+- Потоковая передача веб-камеры на настольный компьютер или на мобильное устройство
+- Переключение: передняя камера/камера обращенная на пользователя('user') или  задняя камера/камера обращенная от пользователя('enviroment')
+- Сделать фотографию и быть в состоянии загрузить его на настольный компьютер или на мобильное устройство.
+
+## Живой демонстрационный пример
 **[https://bensonruan.com/how-to-access-webcam-and-take-photo-with-javascript/](https://bensonruan.com/how-to-access-webcam-and-take-photo-with-javascript/)**
 
 ![webcam-easy-demo](https://bensonruan.com/wp-content/uploads/2020/04/webcam-easy-demo-ok.gif)
 
-## Installation
+## Установка
 
-#### Use Git Clone
+#### Использовать клонирование через утилиту Git
 ``` shell
 git https://github.com/bensonruan/webcam-easy.git
 ```
 
-#### OR Use NPM
+#### ИЛИ используйте NPM
 [![NPM](https://nodei.co/npm/webcam-easy.png?compact=true)](https://nodei.co/npm/webcam-easy/)
-``` shell
+``` в командной строке shell
 npm install webcam-easy
 ```
 
-## Usage
+## Использование
 
-#### 1. Include script tag in html <head>
+#### 1. Включайте тег скрипта в html в тег <head>
 ```html
 <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
 ```
-    or Import into javascript
+    или импортируйте в javascript-коде 
 ``` js
 import Webcam from 'webcam-easy';
 ```
 
 
-#### 2. Place elements in HTML
+#### 2. Место элементов в HTML
 ```html
 <video id="webcam" autoplay playsinline width="640" height="480"></video>
 <canvas id="canvas" class="d-none"></canvas>
 <audio id="snapSound" src="audio/snap.wav" preload = "auto"></audio>
 ```
 
-#### 3. Call constructor in javascript
+#### 3. Вызовите конструктор в javascript-коде
 ``` js
 const webcamElement = document.getElementById('webcam');
 const canvasElement = document.getElementById('canvas');
@@ -52,7 +55,7 @@ const snapSoundElement = document.getElementById('snapSound');
 const webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement);
 ```
 
-#### 4. Start Webcam 
+#### 4. Запуск камеры Webcam 
 ``` js
 webcam.start()
    .then(result =>{
@@ -63,35 +66,35 @@ webcam.start()
    });
 ```
 
-#### 5. Take Photo
+#### 5. Сделать фото
 ``` js
 var picture = webcam.snap();
 ``` 
 
-#### 6. Stop Webcam 
+#### 6. Остановить камеру Webcam 
 ``` js
 webcam.stop();
 ```
 
-## Functions
-- start(startStream) : start streaming webcam 
-  - get permission from user
-  - get all video input devices info
-  - select camera based on facingMode 
-  - start stream
+## Функции
+- start(startStream) : начать передачу потока из веб-камеры 
+  - получить разрешение от пользователя
+  - получить всю информацию об устройствах ввода видео
+  - выберить камеру на основе facingMode(режим обзора из камеры(Facing) 'user'(передняя камера/камера обращенная на пользователя) или 'enviroment'(задняя камера/камера обращенная от пользователя))
+  - запустить поток(stream)
   
   startStream is optional parameter, default value is true
       
-- stop() : stop streaming webcam
+- stop() : прекратить передачу потока из веб-камеры webcam
   
-- stream() : start streaming webcam to video element
+- stream() : начать передачу потока из веб-камеры к видео элементу 
   
-- snap() : take photo from webcam
+- snap() : сделайте фотографию из веб-камеры
   
-- flip() : change Facing mode and selected camera
+- flip() : изменить режим обзора(Facing) и выбранную камеру
 
-## Properties
+## Свойства
 
-- facingMode : 'user' or 'enviroment'
-- webcamList : all available camera device
-- webcamCount : number of available camera device
+- facingMode : режим обзора из камеры(Facing) 'user'(передняя камера/камера обращенная на пользователя) или 'enviroment'(задняя камера/камера обращенная от пользователя)
+- webcamList : все доступные камеры на устройстве
+- webcamCount : число доступных камер на устройстве 

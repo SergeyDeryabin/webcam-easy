@@ -2,13 +2,16 @@
 # Webcam Easy JS
 [English Version](README_EN.md) | Русская версия
 
-Это - javascript-библиотека для доступа к потоку веб-камеры и делать фотографии.
+Это - javascript-библиотека для доступа к потоку веб-камеры и для съемки фотографий.
 
 Вы можете легко добавить ее в виде модуля к вашему собственному приложению.
 
-- Потоковая передача веб-камеры на настольный компьютер или на мобильное устройство
-- Переключение: передняя камера/камера обращенная на пользователя('user') или  задняя камера/камера обращенная от пользователя('enviroment')
-- Сделать фотографию и быть в состоянии загрузить его на настольный компьютер или на мобильное устройство.
+- Потоковая передача из веб-камеры на экран ПЭВМ или мобильного устройства
+- Переключение:
+    - передняя камера/камера обращенная на пользователя('user')
+     или
+     - задняя камера/камера обращенная от пользователя(окружение; 'enviroment')
+- Сделать фотографию и загрузить ее в каталог/папку "Загрузки" на ПЭВМ или на мобильном устройстве.
 
 ## Живой демонстрационный пример
 **[https://bensonruan.com/how-to-access-webcam-and-take-photo-with-javascript/](https://bensonruan.com/how-to-access-webcam-and-take-photo-with-javascript/)**
@@ -17,12 +20,12 @@
 
 ## Установка
 
-#### Использовать клонирование через утилиту Git
+#### Используйте клонирование через утилиту Git
 ``` shell
 git https://github.com/bensonruan/webcam-easy.git
 ```
 
-#### ИЛИ используйте NPM
+#### ИЛИ используйте менеджер пакетов NPM
 [![NPM](https://nodei.co/npm/webcam-easy.png?compact=true)](https://nodei.co/npm/webcam-easy/)
 ``` в командной строке shell
 npm install webcam-easy
@@ -30,7 +33,7 @@ npm install webcam-easy
 
 ## Использование
 
-#### 1. Включайте тег скрипта в html в тег <head>
+#### 1. Включайте тег скрипта в html в тег <head>.
 ```html
 <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
 ```
@@ -40,7 +43,7 @@ import Webcam from 'webcam-easy';
 ```
 
 
-#### 2. Место элементов в HTML
+#### 2. Поместите элементы в HTML-файле
 ```html
 <video id="webcam" autoplay playsinline width="640" height="480"></video>
 <canvas id="canvas" class="d-none"></canvas>
@@ -83,7 +86,7 @@ webcam.stop();
   - выберить камеру на основе facingMode(режим обзора из камеры(Facing) 'user'(передняя камера/камера обращенная на пользователя) или 'enviroment'(задняя камера/камера обращенная от пользователя))
   - запустить поток(stream)
   
-  startStream is optional parameter, default value is true
+  startStream - дополнительный параметр, значение по умолчанию - истина true
       
 - stop() : прекратить передачу потока из веб-камеры webcam
   
